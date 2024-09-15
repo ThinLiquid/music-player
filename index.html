@@ -56,7 +56,7 @@
       }
       // add a fake script tag to the player that WILL NOT RUN but will have an src
       const script = document.createElement('script')
-      script.src = 'https://thinliquid.github.io/music-player.js'
+      script.src = 'https://thinliquid.github.io/music-player/music-player.js'
       script.innerHTML = dedent`({
         // if you want to use your own audio context, you can pass it here
         // audioContext: new AudioContext(),
@@ -110,14 +110,14 @@
       })`
       document.querySelector('.player').appendChild(script)
       const saved = document.querySelector('.player').outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
-      
+      script.remove()
       function view() {
         const win = window.open()
         win.document.write('<pre>' + saved + '</pre>')
       }
       
     </script>
-    <script src="https://thinliquid.github.io/music-player.js">
+    <script src="https://thinliquid.github.io/music-player/music-player.js">
       ({
         // if you want to use your own audio context, you can pass it here
         // audioContext: new AudioContext(),
