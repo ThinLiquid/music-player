@@ -2,26 +2,26 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  background: #1e1e2e;
-  color: #cdd6f4;
-
+  background: black;
+  color: white;
   padding: 5px;
-  border-radius: 5px;
 
   width: 300px;
+  height: 146.6px;
+
   user-select: none;
 }
 
+.player,
 .player *,
 .player *::before,
 .player *::after {
-  font-family: BlinkMacSystemFont, Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;
 }
 
 .player .lqd-metadata {
-  background: #313244;
-  border: 2px solid #6c7086;
   border-radius: 2.5px;
   padding: 2.5px;
   overflow: hidden;
@@ -30,6 +30,11 @@
   position: relative;
   display: flex;
   align-items: center;
+}
+
+.player .lqd-time {
+  height: 21.6px;
+  line-height: 21.6px;
 }
 
 .player .lqd-metadata.overflow div {
@@ -71,57 +76,40 @@
 .player .lqd-seek {
   width: 100%;
   height: 10px;
-
-  background: #313244;
-
-  border-radius: 2.5px;
 }
 
 .player .lqd-seek-inner {
-  background: #89b4fa;
-  border-radius: 2.5px;
   width: 0;
   height: 100%;
+
+  background: white;
 }
 
 .player .lqd-visualizer {
   background: black;
-  border-radius: 2.5px;
 }
 
 .player .lqd-volume {
   width: 10px;
   height: 100%;
-
-  background: linear-gradient(to top, #a6e3a1, #f9e2af, #fab387, #f38ba8);
-
-  border-radius: 2.5px;
+  background: white;
 
   position: relative;
 }
 
 .player .lqd-volume-inner {
-  background: #313244;
-  border: 2px solid #89b4fa;
-  border-radius: 2.5px;
-
   left: -2px;
   width: calc(100% + 4px);
   height: 5px;
+
+  background: white;
 
   position: absolute;
 }
 
 .player button {
-  background: #313244;
-  text-shadow: 1px 1px 0 #cdd6f4, -1px -1px 0 #cdd6f4, 1px -1px 0 #cdd6f4, -1px 1px 0 #cdd6f4;
-  color: #cdd6f4;
-  border: 2px solid #6c7086;
-  border-radius: 2.5px;
-
-  color: black;
-
   padding: 2.5px 5px;
+  cusor: pointer;
 }
 
 .player .lqd-songs {
@@ -132,7 +120,6 @@
   left: 15px;
   width: 285.14px;
   height: 64px!important;
-  background: #1e1e2ea2;
   overflow: scroll;
   padding: 2.5px;
   height: 25px;
@@ -142,19 +129,17 @@
   flex-direction: column;
   overflow-x: hidden;
   z-index: 1;
+  pointer-events: none;
 
   scrollbar-width: none;
 }
 
 .player .lqd-songs.active {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .player .lqd-songs div {
-  background: #313244;
-  border: 2px solid #89b4fa;
-  border-radius: 2.5px;
-
   padding: 5px;
   display: flex;
 }

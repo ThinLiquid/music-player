@@ -180,8 +180,8 @@
       const { default: butterchurnPresets } = await import('https://esm.sh/butterchurn-presets');
     
       visualizer = butterchurn.createVisualizer(audioCtx, elements.visualizer, {
-        width: 285.34,
-        height: 64,
+        width: elements.visualizer.width,
+        height: elements.visualizer.height,
       });
   
       visualizer.connectAudio(source);

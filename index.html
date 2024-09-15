@@ -7,23 +7,26 @@
 </head>
 <body>
   <h1>thinliquid's music player</h1>
-  <p>example usage: <a href="javascript:void()" onclick="view()">here</a></p>
+  <p>example usage: press ctrl+u</p>
   <select>
-    <option value="95.css">95.css</option>
-    <option value="regular.css">Catppuccin Mocha</option>
+    <option>95.css</option>
+    <option>catppuccin_mocha.css</option>
   </select>
-  <link rel="stylesheet" href="95.css">
   <script>
     document.querySelector('select').addEventListener('change', e => {
-      document.querySelector('link').href = e.target.value
+      document.querySelector('link').href = 'https://thinliquid.github.io/music-player/' + e.target.value
     })
   </script>
+
+
+  <!-- THIS BELOW IS WHAT YOU NEED -->
   <div class="player">
+    <link rel="stylesheet" href="https://thinliquid.github.io/music-player/95.css">
     <div class="lqd-metadata">
       <div><span></span><span></span></div>
     </div>
     
-    <div style="display: flex;align-items: center;">
+    <div style="display: flex;align-items: center;gap:5px;">
       <button class="lqd-toggle-songs" title="toggle songs menu">🎶</button>
       <button class="lqd-prev" title="previous track">⏮</button>
       <button class="lqd-play" title="play/pause">⏯</button>
@@ -41,87 +44,9 @@
       <div class="lqd-volume" title="volume slider">
         <div class="lqd-volume-inner"></div>
       </div>
-      <canvas class="lqd-visualizer" width="285.34px" height="64px" style="width: 100%; height: 64px;"></canvas>
+      <canvas class="lqd-visualizer" width="272.15" height="64" style="width:100%;"></canvas>
       <div class="lqd-songs"></div>
     </div>
-
-    <script>
-      document.currentScript.remove()
-      function dedent(...args) {
-        const strings = args[0]
-        const values = args.slice(1)
-        return strings.reduce((result, string, i) => {
-          return result + values[i - 1] + string
-        })
-      }
-      const link = document.createElement('link')
-      link.rel = 'stylesheet'
-      link.href = 'https://thinliquid.github.io/music-player/95.css'
-
-      const script = document.createElement('script')
-      script.src = 'https://thinliquid.github.io/music-player/music-player.js'
-      script.innerHTML = dedent`({
-        // if you want to use your own audio context, you can pass it here
-        // audioContext: new AudioContext(),
-
-        // true or false 
-        autoplay: true,
-
-        // 'bar', 'wave', or 'milkdrop'
-        canvasMode: 'milkdrop',
-
-        // 'random' or one of the presets from here (only used when canvasMode is 'milkdrop')
-        // https://github.com/jberg/butterchurn-presets/tree/master/presets/full
-        canvasPreset: 'random',
-
-        // can only be used when canvasPreset is 'random'
-        canvasShowName: true,
-
-        // only used when canvasMode is 'milkdrop'
-        // this is the duration of each preset in seconds
-        canvasPresetDuration: 10,
-        // this is the duration of the transition between presets in seconds
-        canvasPresetTransitionDuration: 2.5,
-
-        // only used when canvasMode is 'bar' or 'wave'
-        // ** canvasColorStyle: 'gradient', // 'volume', 'gradient', 'custom'
-
-        // only used when canvasColorStyle is 'custom' or 'gradient'
-        // gradient: ['red', 'yellow', 'green', 'blue', 'purple']
-        // custom: '#4169e1' or 'blue' or 'rgb(0, 0, 255)'
-        // ** canvasColor: ['red', 'yellow'], 
-
-        // the songs to play
-        songs: [
-          {
-            url: './tracks/owo.mp3',
-            title: 'Reverse Nightmare Tower',
-            artist: 'bye2',
-          },
-          {
-            url: './tracks/chroma.mp3',
-            title: 'And Revive The Melody',
-            artist: 'Chroma',
-          },
-          {
-            url: './tracks/60fps BLKSMIITH.mp3',
-            title: '60FPS',
-            artist: 'Blksmiith',
-          },
-        ]
-       })
-      })`
-      document.querySelector('.player').appendChild(link)
-      document.querySelector('.player').appendChild(script)
-      const saved = document.querySelector('.player').outerHTML.replace('.css">', '.css">\n').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
-      script.remove()
-      link.remove()
-      function view() {
-        const win = window.open()
-        win.document.write('<pre>' + saved + '</pre>')
-      }
-      
-    </script>
     <script src="https://thinliquid.github.io/music-player/music-player.js">
       ({
         // if you want to use your own audio context, you can pass it here
@@ -175,5 +100,6 @@
       })
     </script>
   </div>
+  <!-- THE ABOVE IS WHAT YOU NEED -->
 </body>
 </html>

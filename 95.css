@@ -1,24 +1,19 @@
-.player {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  background: #c3c3c3;
+@import url('./base.css');
 
+.player {
+  color: black;
+  background: #c3c3c3;
+  
   border: 2px solid white;
   border-bottom: 2px solid black;
   border-right: 2px solid black;
-
-  padding: 5px;
-
-  width: 300px;
-  user-select: none;
 }
 
+.player,
 .player *,
 .player *::before,
 .player *::after {
   font-family: MS UI Gothic, MS Gothic, monospace;
-  box-sizing: border-box;
 }
 
 .player .lqd-metadata {
@@ -26,55 +21,9 @@
   border: 2px solid black;
   border-bottom: 2px solid white;
   border-right: 2px solid white;
-  padding: 2.5px;
-  overflow: hidden;
-  height: 25px;
-  white-space: nowrap;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.player .lqd-metadata.overflow div {
-  --gap: 5px;
-  display: flex;
-  overflow-x: hidden;
-  user-select: none;
-
-  gap: var(--gap);
-}
-
-.player .lqd-metadata.overflow span {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: space-around;
-  min-width: 100%;
-  animation: scroll 5s linear infinite;
-  gap: var(--gap);
-}
-
-.player .lqd-metadata.overflow span::after {
-  content: ' * ';
-  white-space: pre;
-}
-
-.player .lqd-metadata.overflow div:hover span {
-  animation-play-state: paused;
-}
-
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
-  }
 }
 
 .player .lqd-seek {
-  width: 100%;
-  height: 10px;
-
   background: white;
 
   border: 2px solid black;
@@ -84,29 +33,20 @@
 
 .player .lqd-seek-inner {
   background: #0827f5;
-  width: 0;
-  height: 100%;
 }
 
 .player .lqd-visualizer {
-  background: black;
-
   border: 2px solid black;
   border-bottom: 2px solid white;
   border-right: 2px solid white;
 }
 
 .player .lqd-volume {
-  width: 10px;
-  height: 100%;
-
   background: linear-gradient(to top, lime, yellow, orange, red);
 
   border: 2px solid black;
   border-bottom: 2px solid white;
   border-right: 2px solid white;
-
-  position: relative;
 }
 
 .player .lqd-volume-inner {
@@ -115,12 +55,6 @@
   border: 1px solid white;
   border-bottom: 1px solid black;
   border-right: 1px solid black;
-
-  left: -2px;
-  width: calc(100% + 4px);
-  height: 5px;
-
-  position: absolute;
 }
 
 .player button {
@@ -130,37 +64,16 @@
   border-bottom: 2px solid black;
   border-right: 2px solid black;
   color: black;
-
-  padding: 2.5px 5px;
 }
 
 .player .lqd-songs {
-  position: absolute!important;
-  display: block;
-  opacity: 0;
-  top: 0;
-  left: 15px;
-  width: 285.14px;
-  height: 64px!important;
   background: #c3c3c3a2;
-  overflow: scroll;
+
   border: 2px solid black;
   border-bottom: 2px solid white;
   border-right: 2px solid white;
-  padding: 2.5px;
-  height: 25px;
-  white-space: nowrap;
-  display: flex;
-  gap: 5px;
-  flex-direction: column;
-  overflow-x: hidden;
-  z-index: 1;
 
   scrollbar-width: thin;
-}
-
-.player .lqd-songs.active {
-  opacity: 1;
 }
 
 .player .lqd-songs div {
@@ -169,7 +82,4 @@
   border-right: 2px solid black;
 
   background: #c3c3c3;
-
-  padding: 5px;
-  display: flex;
 }
