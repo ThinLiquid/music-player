@@ -192,8 +192,8 @@
       if (data.canvasPreset === 'random') {
         const overlay = document.createElement('overlay')
         overlay.style.position = 'absolute';
-        overlay.style.top = 0;
-        overlay.style.left = '15px';
+        overlay.style.top = '2px';
+        overlay.style.left = '17px';
         overlay.style.fontSize = '7.5px';
         overlay.style.color = 'white';
 
