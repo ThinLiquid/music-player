@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <select>
+    <option value="95.css">95.css</option>
+    <option value="regular.css">Catppuccin Mocha</option>
+  </select>
+  <link rel="stylesheet" href="95.css">
+  <script>
+    document.querySelector('select').addEventListener('change', e => {
+      document.querySelector('link').href = e.target.value
+    })
+  </script>
+  <div class="player">
+    <div class="lqd-metadata">
+      <div><span></span><span></span></div>
+    </div>
+    
+    <div style="display: flex;align-items: center;">
+      <button class="lqd-toggle-songs" title="toggle songs menu">🎶</button>
+      <button class="lqd-prev" title="previous track">⏮</button>
+      <button class="lqd-play" title="play/pause">⏯</button>
+      <button class="lqd-stop" title="stop">⏹</button>
+      <button class="lqd-next" title="next track">⏭</button>
+      <div style="flex:1"></div>
+      <span class="lqd-time" style="font-weight: 700;">00:00 / 00:00</span>
+    </div>
+
+    <div class="lqd-seek" title="seek track">
+      <div class="lqd-seek-inner"></div>
+    </div>
+
+    <div style="display: flex; gap: 5px; height: 64px;position: relative;">
+      <div class="lqd-volume" title="volume slider">
+        <div class="lqd-volume-inner"></div>
+      </div>
+      <canvas class="lqd-visualizer" width="285.34px" height="64px" style="width: 100%; height: 64px;"></canvas>
+      <div class="lqd-songs"></div>
+    </div>
+
+    <script src="./music-player.js">
+      ({
+        // if you want to use your own audio context, you can pass it here
+        // audioContext: new AudioContext(),
+
+        // true or false 
+        autoplay: true,
+
+        // 'bar', 'wave', or 'milkdrop'
+        canvasMode: 'milkdrop',
+
+        // 'random' or one of the presets from here (only used when canvasMode is 'milkdrop')
+        // https://github.com/jberg/butterchurn-presets/tree/master/presets/full
+        canvasPreset: 'random',
+
+        // can only be used when canvasPreset is 'random'
+        canvasShowName: true,
+
+        // only used when canvasMode is 'milkdrop'
+        // this is the duration of each preset in seconds
+        canvasPresetDuration: 10,
+        // this is the duration of the transition between presets in seconds
+        canvasPresetTransitionDuration: 5,
+
+        // only used when canvasMode is 'bar' or 'wave'
+        // ** canvasColorStyle: 'gradient', // 'volume', 'gradient', 'custom'
+
+        // only used when canvasColorStyle is 'custom' or 'gradient'
+        // gradient: ['red', 'yellow', 'green', 'blue', 'purple']
+        // custom: '#4169e1' or 'blue' or 'rgb(0, 0, 255)'
+        // ** canvasColor: ['red', 'yellow'], 
+
+        // the songs to play
+        songs: [
+          {
+            url: './tracks/owo.mp3',
+            title: 'Reverse Nightmare Tower',
+            artist: 'bye2',
+          },
+          {
+            url: './tracks/chroma.mp3',
+            title: 'And Revive The Melody',
+            artist: 'Chroma',
+          },
+          {
+            url: './tracks/60fps BLKSMIITH.mp3',
+            title: '60FPS',
+            artist: 'Blksmiith',
+          },
+        ]
+      })
+    </script>
+  </div>
+</body>
+</html>
