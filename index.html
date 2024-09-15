@@ -6,6 +6,8 @@
   <title>Document</title>
 </head>
 <body>
+  <h1>thinliquid's music player</h1>
+  <p>view source: <a href="javascript:void()" onclick="view()">here</a></p>
   <select>
     <option value="95.css">95.css</option>
     <option value="regular.css">Catppuccin Mocha</option>
@@ -43,6 +45,14 @@
       <div class="lqd-songs"></div>
     </div>
 
+    <script>
+      document.currentScript.remove()
+      const saved = document.querySelector('.player').outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+      function view() {
+        const win = window.open()
+        win.document.write('<pre>' + saved + '</pre>')
+      }
+    </script>
     <script src="./music-player.js">
       ({
         // if you want to use your own audio context, you can pass it here
