@@ -38,6 +38,7 @@
 
     const song = data.songs[index];
     audio.src = song.url;
+    visualizer.launchSongTitleAnim(`${song.artist} - ${song.title}`);
 
     const metadataSpans = elements.metadata.querySelectorAll('div > span');
     metadataSpans[0].innerText = `${song.artist} - ${song.title}`;
@@ -153,6 +154,7 @@
     });
   };
 
+  let visualizer;
   const setupVisualizer = async () => {
     const audioCtx = data.audioContext || new AudioContext();
 
@@ -174,7 +176,6 @@
     const dataArray = new Uint8Array(bufferLength);
 
 
-    let visualizer;
     if (data.canvasMode === 'milkdrop') {
       const { default: butterchurn } = await import('https://esm.sh/butterchurn');
       const { default: butterchurnPresets } = await import('https://esm.sh/butterchurn-presets');
@@ -186,8 +187,6 @@
         meshHeight: 24,
         pixelRatio: window.devicePixelRatio || 1,
       });
-
-      visualizer.launchSongTitleAnim(`${data.songs[index].artist} - ${data.songs[index].title}`);
   
       visualizer.connectAudio(source);
   
