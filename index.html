@@ -54,7 +54,10 @@
           return result + values[i - 1] + string
         })
       }
-      // add a fake script tag to the player that WILL NOT RUN but will have an src
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = 'https://thinliquid.github.io/music-player/95.css'
+
       const script = document.createElement('script')
       script.src = 'https://thinliquid.github.io/music-player/music-player.js'
       script.innerHTML = dedent`({
@@ -108,9 +111,11 @@
         ]
        })
       })`
+      document.querySelector('.player').appendChild(link)
       document.querySelector('.player').appendChild(script)
-      const saved = document.querySelector('.player').outerHTML.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+      const saved = document.querySelector('.player').outerHTML.replace('.css">', '.css">\n').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
       script.remove()
+      link.remove()
       function view() {
         const win = window.open()
         win.document.write('<pre>' + saved + '</pre>')
