@@ -38,7 +38,10 @@
 
     const song = data.songs[index];
     audio.src = song.url;
-    visualizer.launchSongTitleAnim(`${song.artist} - ${song.title}`);
+    
+    if (visualizer) {
+      visualizer.launchSongTitleAnim(`${song.artist} - ${song.title}`);
+    }
 
     const metadataSpans = elements.metadata.querySelectorAll('div > span');
     metadataSpans[0].innerText = `${song.artist} - ${song.title}`;
@@ -187,6 +190,8 @@
         meshHeight: 24,
         pixelRatio: window.devicePixelRatio || 1,
       });
+
+      visualizer.launchSongTitleAnim(`${song.artist} - ${song.title}`);
   
       visualizer.connectAudio(source);
   
