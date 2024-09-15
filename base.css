@@ -118,7 +118,7 @@
   opacity: 0;
   top: 0;
   left: 15px;
-  width: calc(100% - 5px);
+  width: calc(100% - 15px);
   height: 64px!important;
   overflow: scroll;
   padding: 2.5px;

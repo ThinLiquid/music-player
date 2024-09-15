@@ -52,6 +52,7 @@
 
 .player .lqd-songs {
   background: #1e1e2ea2;
+  border-radius: 2.5px;
 }
 
 .player .lqd-songs div {
