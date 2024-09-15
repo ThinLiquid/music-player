@@ -182,7 +182,12 @@
       visualizer = butterchurn.createVisualizer(audioCtx, elements.visualizer, {
         width: elements.visualizer.width,
         height: elements.visualizer.height,
+        meshWidth: 32,
+        meshHeight: 24,
+        pixelRatio: window.devicePixelRatio || 1,
       });
+
+      visualizer.launchSongTitleAnim(`${data.songs[index].artist} - ${data.songs[index].title}`);
   
       visualizer.connectAudio(source);
   
