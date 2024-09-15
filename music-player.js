@@ -191,7 +191,7 @@
         pixelRatio: window.devicePixelRatio || 1,
       });
 
-      visualizer.launchSongTitleAnim(`${song.artist} - ${song.title}`);
+      visualizer.launchSongTitleAnim(`${data.songs[index].artist} - ${data.songs[index].title}`);
   
       visualizer.connectAudio(source);
   
